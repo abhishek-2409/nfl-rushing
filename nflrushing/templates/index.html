@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+
+{% block body%}
+
+<!-- Navbar starts here -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">NFL Rushing</a>
+</nav>
+<!-- Navbar ends here -->
+
+<!-- Table starts here -->
+<div class="container mb-3 mt-5">
+    <table class="table rushingtable">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Player</th>
+                <th scope="col">Team</th>
+                <th scope="col">Pos</th>
+                <th scope="col">Att/G</th>
+                <th scope="col">Att</th>
+                <th scope="col">Yrds</th>
+                <th scope="col">Avg</th>
+                <th scope="col">Yds/G</th>
+                <th scope="col">TD</th>
+                <th scope="col">Lng</th>
+                <th scope="col">1st</th>
+                <th scope="col">1st%</th>
+                <th scope="col">20+</th>
+                <th scope="col">40+</th>
+                <th scope="col">FUM</th>
+            </tr>
+        </thead>
+
+
+
+        <tbody>
+            <tr>
+                {% for p in players %}
+                <td align="center">{{ p.player}}</td>
+                <td align="center">{{ p.team}}</td>
+                <td align="center">{{ p.pos}}</td>
+                <td align="center">{{ p.att}}</td>
+                <td align="center">{{ p.att_g}}</td>
+                <td align="center">{{ p.yds}}</td>
+                <td align="center">{{ p.avg}}</td>
+                <td align="center">{{ p.yds_g}}</td>
+                <td align="center">{{ p.td}}</td>
+                <td align="center">{{ p.lng}}</td>
+                <td align="center">{{ p.fst}}</td>
+                <td align="center">{{ p.fst_pc}}</td>
+                <td align="center">{{ p.rush20p}}</td>
+                <td align="center">{{ p.rush40p}}</td>
+                <td align="center">{{ p.fum}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+
+
+</div>
+<!-- Table ends here -->
+
+
+<!-- DataTable JavaScript starts here...
+1. Layout of datatable elements 
+2. Button for exporting as CSV 
+3. Sorting 'Lng' column using natural sorting algorithm -->
+<script>
+    $('.rushingtable').DataTable(
+        {   
+            dom: 'lfrtipB', 
+            buttons: { name: 'primary', buttons: ['csv'] },
+            columnDefs: [{ type: 'natural', targets: 9 }]
+        });
+</script>
+
+
+{%endblock%}
