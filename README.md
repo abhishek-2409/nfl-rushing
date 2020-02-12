@@ -72,7 +72,7 @@ In your terminal/shell run
 View the solution on my [`website`](http://159.89.32.177/) (atleast until I can afford to host it :)).
 
 * __Pre-requisites__:
-For the first two options your system should have docker installed.
+For the first two options your system should have docker installed along with a working internet connection.
 * __Note__:
-JSON data was loaded into the database through Django shell using the script available in [`parse.txt`](/parse.txt).
-Django's development server is being used here with Debug=`True`.
+JSON data was loaded into the database through Django shell using the script available in [`parser.txt`](/parse.txt).
+Django's development server is being used here with DEBUG=`True`.
