@@ -50,4 +50,29 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+This solution has been implemented using Django web framework which offers built in sqlite database.
+To keep things simple, the app has been dockerized.
+You have 3 options to run this solution which are as follows:
+1. #### __Fast__
+Clone this repository to a local repository.
+In your base directory containing `Dockerfile`, open Terminal/Shell and run 
+```
+docker build -t "nfl-rushing" .
+docker run -it -p 8000:8000 nfl-rushing
+```
+Then you can access the solution at http://127.0.0.1:8000 or if you're using a VM then at http://<`VM's default IP`>:8000/
+
+2. #### __Faster__
+Build a container directly from the image uploaded in my dockerhub public repository.
+In your terminal/shell run
+
+`docker run -p 8000:8000 abhishek2409/nfl-rushing:latest`
+
+3. #### __Fastest__
+View the solution on my [`website`](http://159.89.32.177/) (atleast until I can afford to host it :)).
+
+* __Pre-requisites__:
+For the first two options your system should have docker installed.
+* __Note__:
+JSON data was loaded into the database through Django shell using the script available in [`parse.txt`](/parse.txt).
+Django's development server is being used here with Debug=`True`.
